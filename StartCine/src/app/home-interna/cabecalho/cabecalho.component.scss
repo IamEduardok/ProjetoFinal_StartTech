@@ -1,0 +1,91 @@
+@import '../../app.component.scss';
+
+mat-toolbar {
+  font-family: $fontePadrao;
+  background-color: transparent;
+  font-size: $tamanhoMedio;
+  position: fixed;
+  z-index: 5;
+  color: $corBranco;
+  .container {
+	.logoStart {
+		cursor: pointer;
+	}
+	width: 80%;
+	display: flex;
+	margin: auto;
+	backdrop-filter: blur(10px);	
+	.example-spacer {
+	  flex: 1 1 auto;
+	}
+	
+	.navbar-responsivo, .navbar-direita {
+	  position: relative;
+	  font-family: $fontePadrao;
+	  button {
+			font-size: $tamanhoMedio;
+			font-family: $fontePadrao;
+		  .anime-icon {
+			padding-top: 5px;
+			width: 20px;
+			filter: invert(100%) grayscale(100%) brightness(1000%) sepia(0%);
+			color: $corPrincipal;
+			transition: filter 0.3s; 
+			&:hover {
+				filter: none;
+			}
+		  }
+		&:hover {
+			.anime-icon{
+				filter: none;
+				color: $corPrincipal;
+			}
+			color: $corPrincipal;
+		  &:before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 0;
+			height: 3px;
+			background-color: $corPrincipal;
+			transform: scaleX(0);
+			transform-origin: left center;
+			transition: width 2s;
+		  }
+		}
+		&:hover:before {
+		  width: 100%;
+		  transform: scaleX(1);
+		}
+	  }
+	}
+  }
+}
+
+.navbar-responsivo-menu {
+  display: none;
+  font-family: $fontePadrao;
+}
+
+@media screen and (max-width: 1000px) {
+  .navbar-responsivo-menu {
+	display: flex;
+  }
+
+  .anime-icon-responsivo {
+	padding-top: 5px;
+	width: 20px;
+	filter: invert(100%) grayscale(100%);
+	color: $corPrincipal;
+	transition: filter 0.3s; 
+}
+  
+  .navbar-responsivo {
+	display: none;
+  }
+
+  .navbar-responsivo-direita {
+	display: none;
+  }
+}
